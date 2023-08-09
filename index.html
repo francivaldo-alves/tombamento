@@ -67,8 +67,8 @@
               <div id="numero"></div>
             </div>
             </br>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+            <div class="progress style="height: 40px; ">
+              <div class="progress-bar progress-bar-striped " role="progressbar" aria-valuenow="35" aria-valuemin="40	"
                 aria-valuemax="100"></div>
             </div>
             </br>
@@ -89,23 +89,37 @@
   </div>
 
   <script>
-    let numeroTotal = 1821
-    document.querySelector("#numero").innerHTML = numeroTotal
+    let totalMigracao = 1821;
+	let meta = 5612;
+
+	
+    document.querySelector("#numero").innerHTML = totalMigracao
 
     // Suponha que "numero" é a sua variável com o valor atual
-    var numero = numeroTotal; // Altere esse valor conforme necessário
+    var numero = totalMigracao; // Altere esse valor conforme necessário
 
     // Calcula a porcentagem de progresso
-    var porcentagem = (numero / 5612) * 100;
+    var porcentagem = (numero / meta) * 100;
 
     // Seleciona a barra de progresso
     var progressbar = document.querySelector('.progress-bar');
 
     let porcentagemFormatada = porcentagem.toFixed(2);
     // Atualiza a largura da barra de progresso e o valor acessível
+	
     progressbar.style.width = porcentagemFormatada + '%';
     progressbar.setAttribute('aria-valuenow', porcentagemFormatada);
-    progressbar.innerHTML = porcentagemFormatada + '%';
+   
+	
+	if(porcentagemFormatada <= 84.99)
+	     progressbar.innerHTML = porcentagemFormatada + '% PLR: Não atige';
+	else if(porcentagemFormatada <= 89.99)
+	      progressbar.innerHTML = porcentagemFormatada + '% PLR: Atinge Parcial';
+	else if (porcentagemFormatada <=94.99)
+          progressbar.innerHTML = porcentagemFormatada + '% PLR: Atinge';	
+	else   
+	     progressbar.innerHTML = porcentagemFormatada + '% PLR: Supera';	
+	
 
 
     setTimeout(() => {
@@ -118,3 +132,4 @@
 </body>
 
 </html>
+
