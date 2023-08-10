@@ -74,7 +74,7 @@
             </br>
             <br />
 
-            <h2>Data da última atualização: <strong>09/08/2023</strong></h2>
+            <h2 > <strong id="data"/></h2>
       </div>
 
 
@@ -89,10 +89,11 @@
   </div>
 
   <script>
-    let totalMigracao = 1915;
+  var dataUltimaAtualizacao = "10/08/2023"
+    let totalMigracao = 2004;
 	let meta = 5612;
 
-	
+	document.querySelector("#data").innerHTML=" Data da última atualização: " + dataUltimaAtualizacao
     document.querySelector("#numero").innerHTML = totalMigracao
 
     // Suponha que "numero" é a sua variável com o valor atual
@@ -112,7 +113,7 @@
    
 	
 	if(porcentagemFormatada <= 84.99)
-	     progressbar.innerHTML = porcentagemFormatada + '% PLR: Não atinge';
+	     progressbar.innerHTML = porcentagemFormatada + '% PLR: Não atige';
 	else if(porcentagemFormatada <= 89.99)
 	      progressbar.innerHTML = porcentagemFormatada + '% PLR: Atinge Parcial';
 	else if (porcentagemFormatada <=94.99)
@@ -120,6 +121,7 @@
 	else   
 	     progressbar.innerHTML = porcentagemFormatada + '% PLR: Supera';	
 	
+
 
     setTimeout(() => {
       document.location.reload();
