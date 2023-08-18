@@ -101,15 +101,14 @@
     document.querySelector("#data").innerHTML = " Terminais migrados até: " + dataUltimaAtualizacao
     document.querySelector("#numero").innerHTML = totalMigracao
 
-    // Suponha que "numero" é a sua variável com o valor atual
-    let numero = totalMigracao; // Altere esse valor conforme necessário
+    let numero = totalMigracao; 
 
     // Calcula a porcentagem de progresso
     let porcentagem = (numero / meta) * 100;
 
     let porcentagemFormatada = porcentagem.toFixed(2);
 
-    // Atualiza a largura da barra de progresso de acordo com a variável 'numero'
+    // Atualiza a largura da barra de progresso de acordo com a variável 'porcentagemFormatada'
     function atualizarBarraDeProgresso() {
       var progressBar = document.getElementById("progress-bar");
       var progressMessage = document.getElementById("progress-message");
@@ -117,10 +116,10 @@
       progressBar.style.width = porcentagemFormatada + "%";
       progressBar.setAttribute("aria-valuenow", porcentagemFormatada);
       progressMessage.innerText = getProgressMessage(porcentagemFormatada);
-      progressBar.classList = "progress-bar progress-bar-striped " + getProgressBarColor(porcentagemFormatada);
+      progressBar.classList = "progress-bar progress-bar-striped progress-bar-animated " + getProgressBarColor(porcentagemFormatada);
     }
 
-    // Retorna uma mensagem para a barra de progresso de acordo com o valor
+    // Retorna uma mensagem para a barra de progresso de acordo com o porcentagemFormatada
     function getProgressMessage(porcentagemFormatada) {
       if (porcentagemFormatada <= 84.99) {
         return porcentagemFormatada + '% PLR: Não atinge'
@@ -133,7 +132,7 @@
       }
     }
 
-    // Retorna a classe de cor da barra de progresso com base no valor
+    // Retorna a classe de cor da barra de progresso com base no porcentagemFormatada
     function getProgressBarColor(porcentagemFormatada) {
       if (porcentagemFormatada <= 84.99) {
         return "bg-danger";
