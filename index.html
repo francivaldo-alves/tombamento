@@ -138,9 +138,9 @@
     // Retorna a classe de cor da barra de progresso com base no porcentagemFormatada
     function getProgressBarColor(porcentagemFormatada) {
       if (porcentagemFormatada <= 84.99) {
-        return "bg-danger";
-      } else if (porcentagemFormatada <= 89.99) {
         return "bg-warning";
+      } else if (porcentagemFormatada <= 89.99) {
+        return "bg-primary";
       } else if (porcentagemFormatada <= 94.99) {
         return "bg-info";
       } else {
