@@ -8,6 +8,9 @@
   <!-- Adicione aqui o link para o arquivo CSS do Bootstrap -->
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+   <script src="https://kit.fontawesome.com/8990db7466.js" crossorigin="anonymous"></script>
   <style>
     .navbar-custom {
       background-color: #00009c;
@@ -44,7 +47,7 @@
     #progress-message{
       font-size: 15px;
       text-align: right;
-      margin-right:10px ;
+      margin-right:15px ;
     }
 	.bg-warning {
     background-color: #FF8C00 !important;
@@ -54,6 +57,10 @@
 	 color: black
    
     }
+	
+
+}
+
     
   </style>
 </head>
@@ -93,10 +100,19 @@
               <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
                 aria-valuemin="0" aria-valuemax="100">
                 <span id="progress-message"></span>
+				 
               </div>
+			 
             </div>
-            </br>
+			
+			</br>
             
+		       <i id="elementoMonay"   style="color: #279657;"></i>  
+		       <i id="elementoMonay2"  style="color: #279657;"></i>  
+			<i id="elementoMonay3"  style="color: #279657;"></i>  
+			   
+			   
+		</br>	   
 
             <h2> <strong id="data"></h2>
       </div>
@@ -105,9 +121,9 @@
   </div>
 
   <script>
-    let totalMigracao = 4571;
+    let totalMigracao = 4637;
     let meta = 5612;
-    let dataUltimaAtualizacao = "26/09/2023"
+    let dataUltimaAtualizacao = "27/09/2023"
 
     document.querySelector("#data").innerHTML = " Terminais migrados até: " + dataUltimaAtualizacao
     document.querySelector("#numero").innerHTML = totalMigracao
@@ -118,12 +134,36 @@
     let porcentagem = (numero / meta) * 100;
 
     let porcentagemFormatada = porcentagem.toFixed(2);
-
+	
+	function atualizarDolar(){
+	
+		 var monay = document.getElementById("elementoMonay");
+		 monay.classList="fa-solid fa-sack-dollar fa-lg";
+     
+	 }
+	 
+	 	
+	function atualizarDolar2(){
+	
+		 var monay = document.getElementById("elementoMonay2");
+		 monay.classList="fa-solid fa-sack-dollar fa-lg";
+     
+	 }
+	 
+	 	function atualizarDolar3(){
+	
+		 var monay = document.getElementById("elementoMonay3");
+		 monay.classList="fa-solid fa-sack-dollar fa-lg";
+     
+	 }
+	 
+	 
+	 
     // Atualiza a largura da barra de progresso de acordo com a variável 'porcentagemFormatada'
     function atualizarBarraDeProgresso() {
       var progressBar = document.getElementById("progress-bar");
       var progressMessage = document.getElementById("progress-message");
-
+	  
       progressBar.style.width = porcentagemFormatada + "%";
       progressBar.setAttribute("aria-valuenow", porcentagemFormatada);
       progressMessage.innerText = getProgressMessage(porcentagemFormatada);
@@ -146,12 +186,21 @@
     // Retorna a classe de cor da barra de progresso com base no porcentagemFormatada
     function getProgressBarColor(porcentagemFormatada) {
       if (porcentagemFormatada <= 84.99) {
-        return "bg-warning";
+
+        return "bg-warning" ;
+	    	
       } else if (porcentagemFormatada <= 89.99) {
-        return "bg-primary";
-      } else if (porcentagemFormatada <= 94.99) {
+	   atualizarDolar()
         return "bg-info";
+      } else if (porcentagemFormatada <= 94.99) {
+	   atualizarDolar()
+	    atualizarDolar2()
+        return "bg-primary";
       } else {
+	     atualizarDolar()
+	    atualizarDolar2()
+		 atualizarDolar3()
+		
         return "bg-success";
       }
     }
